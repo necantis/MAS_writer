@@ -1,0 +1,14 @@
+# Live Agent Orchestrator - Python Dependencies
+# ==============================================
+
+# Gemini API Client
+google-generativeai>=0.8.0
+
+# Environment Variable Management
+python-dotenv>=1.0.0
+
+# HTTP Requests (for external tools/APIs)
+requests>=2.31.0
+
+# Optional: Enhanced logging and debugging
+colorama>=0.4.6

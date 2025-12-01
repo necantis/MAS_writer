@@ -1,0 +1,97 @@
+{
+    "test_scenarios": [
+        {
+            "scenario_name": "Happy Path: Successful Convergence on Iteration 3",
+            "description": "Validates that the orchestrator terminates correctly after meeting success criteria on the third iteration",
+            "expected_outcome": "SUCCESS",
+            "expected_iterations": 3,
+            "reviewer_mock_responses": [
+                "**REVIEWER_SCORECARD**\n* Previous_Kill_List_Fixed: [N/A] (Initial run)\n* Lean_Plan_Table_Present: [NO]\n* Appendix_A_Toulmin_Present: [YES]\n* Marketing_AB_Structure_Correct: [YES]\n* ADK_Architecture_Compliant: [YES]\n* Citation_Quality_Pass: [YES]\n* Financial_Model_Reality_Check: [PASS]\n**END_SCORECARD**\n\nThe document requires revision. The following items must be fixed:\n\nKill List:\n1. The Lean Plan Table is missing the 'Team' header column.\n2. The Lean Plan Table is missing the 'Milestones' header column.",
+                "**REVIEWER_SCORECARD**\n* Previous_Kill_List_Fixed: [YES]\n* Lean_Plan_Table_Present: [YES]\n* Appendix_A_Toulmin_Present: [YES]\n* Marketing_AB_Structure_Correct: [YES]\n* ADK_Architecture_Compliant: [NO]\n* Citation_Quality_Pass: [YES]\n* Financial_Model_Reality_Check: [PASS]\n**END_SCORECARD**\n\nThe document requires revision. Previous Kill List items have been addressed, but new issues found:\n\nKill List:\n1. ADK Architecture terminology is incorrect. The orchestration layer is referred to as 'The Brain'. Must use proper terminology: 'Nervous System' or 'Orchestration Layer'.",
+                "**REVIEWER_SCORECARD**\n* Previous_Kill_List_Fixed: [YES]\n* Lean_Plan_Table_Present: [YES]\n* Appendix_A_Toulmin_Present: [YES]\n* Marketing_AB_Structure_Correct: [YES]\n* ADK_Architecture_Compliant: [YES]\n* Citation_Quality_Pass: [YES]\n* Financial_Model_Reality_Check: [PASS]\n**END_SCORECARD**\n\nAll previous issues have been successfully addressed. The document meets all quality standards and requirements. No rejections. Final pass approved."
+            ],
+            "meta_reviewer_mock_prompts": [
+                "Agent A: Your document is missing critical Lean Plan Table headers. Add the 'Team' and 'Milestones' columns to the Lean Plan Table immediately. Ensure all required headers are present: Problem, Solution, Key Metrics, Unique Value Proposition, Unfair Advantage, Channels, Customer Segments, Cost Structure, Revenue Streams, Team, and Milestones.",
+                "Agent A: Fix the ADK Architecture terminology NOW. Replace all references to 'The Brain' with the correct terminology: 'Nervous System' or 'Orchestration Layer'. Review the entire document to ensure architectural consistency with ADK standards.",
+                "NOT_EXECUTED"
+            ]
+        },
+        {
+            "scenario_name": "Immediate Rejection/Failure on Iteration 2",
+            "description": "Validates that the system detects critical rejection when previous Kill List items are ignored",
+            "expected_outcome": "MAX_ITERATION_FAILURE",
+            "expected_iterations": 5,
+            "reviewer_mock_responses": [
+                "**REVIEWER_SCORECARD**\n* Previous_Kill_List_Fixed: [N/A] (Initial run)\n* Lean_Plan_Table_Present: [YES]\n* Appendix_A_Toulmin_Present: [YES]\n* Marketing_AB_Structure_Correct: [YES]\n* ADK_Architecture_Compliant: [YES]\n* Citation_Quality_Pass: [YES]\n* Financial_Model_Reality_Check: [FAIL]\n**END_SCORECARD**\n\nThe document requires IMMEDIATE ATTENTION. Critical financial model deficiencies detected:\n\nKill List:\n1. Financial Model lacks Burn Rate calculation - this is a CRITICAL omission.\n2. Revenue projections are not supported by market data or evidence.\n3. Cost structure is incomplete - missing operational expense breakdown.",
+                "**REVIEWER_SCORECARD**\n* Previous_Kill_List_Fixed: [NO]\n* Lean_Plan_Table_Present: [YES]\n* Appendix_A_Toulmin_Present: [YES]\n* Marketing_AB_Structure_Correct: [YES]\n* ADK_Architecture_Compliant: [YES]\n* Citation_Quality_Pass: [YES]\n* Financial_Model_Reality_Check: [FAIL]\n**END_SCORECARD**\n\n**REJECTED**: The previous Kill List was completely IGNORED. The Burn Rate calculation is still missing, which represents a fundamental failure to address critical feedback. System integrity compromised - the Author Agent is not responding to audit requirements.\n\nKill List:\n1. Burn Rate calculation STILL MISSING (CRITICAL - previously flagged)\n2. Revenue projections STILL lack evidence (previously flagged)\n3. Cost structure STILL incomplete (previously flagged)",
+                "**REVIEWER_SCORECARD**\n* Previous_Kill_List_Fixed: [NO]\n* Lean_Plan_Table_Present: [YES]\n* Appendix_A_Toulmin_Present: [YES]\n* Marketing_AB_Structure_Correct: [YES]\n* ADK_Architecture_Compliant: [YES]\n* Citation_Quality_Pass: [YES]\n* Financial_Model_Reality_Check: [FAIL]\n**END_SCORECARD**\n\n**REJECTED**: Continued failure to address financial model requirements. This is the third iteration with the same critical deficiencies.\n\nKill List:\n1. Burn Rate calculation STILL MISSING\n2. Revenue projections STILL lack evidence\n3. Cost structure STILL incomplete",
+                "**REVIEWER_SCORECARD**\n* Previous_Kill_List_Fixed: [NO]\n* Lean_Plan_Table_Present: [YES]\n* Appendix_A_Toulmin_Present: [YES]\n* Marketing_AB_Structure_Correct: [YES]\n* ADK_Architecture_Compliant: [YES]\n* Citation_Quality_Pass: [YES]\n* Financial_Model_Reality_Check: [FAIL]\n**END_SCORECARD**\n\n**REJECTED**: Fourth iteration failure. Financial model remains fundamentally flawed.\n\nKill List:\n1. Burn Rate calculation STILL MISSING\n2. Revenue projections STILL lack evidence\n3. Cost structure STILL incomplete",
+                "**REVIEWER_SCORECARD**\n* Previous_Kill_List_Fixed: [NO]\n* Lean_Plan_Table_Present: [YES]\n* Appendix_A_Toulmin_Present: [YES]\n* Marketing_AB_Structure_Correct: [YES]\n* ADK_Architecture_Compliant: [YES]\n* Citation_Quality_Pass: [YES]\n* Financial_Model_Reality_Check: [FAIL]\n**END_SCORECARD**\n\n**REJECTED**: Fifth iteration - maximum attempts exhausted. Financial model requirements never addressed.\n\nKill List:\n1. Burn Rate calculation STILL MISSING\n2. Revenue projections STILL lack evidence\n3. Cost structure STILL incomplete"
+            ],
+            "meta_reviewer_mock_prompts": [
+                "Agent A: CRITICAL PRIORITY - Fix the Financial Model immediately. You MUST add:\n1. Burn Rate calculation with monthly breakdown\n2. Evidence-based revenue projections with market data citations\n3. Complete operational expense breakdown in cost structure\n\nThese are non-negotiable requirements. Address ALL three items in your next revision.",
+                "Agent A: URGENT - You failed to address the previous Kill List. The Burn Rate calculation is STILL MISSING. This is a critical requirement. Add the Burn Rate calculation NOW with proper formulas and monthly projections.",
+                "Agent A: FINAL WARNING - Add the Burn Rate calculation, evidence-based revenue projections, and complete cost structure. This is your third attempt.",
+                "Agent A: LAST CHANCE - Complete the financial model with all required components: Burn Rate, evidenced revenue projections, and full cost breakdown.",
+                "NOT_EXECUTED"
+            ]
+        },
+        {
+            "scenario_name": "Max Iteration Failure (Exhaustion)",
+            "description": "Validates that the loop terminates gracefully when complexity exceeds MAX_ITERATIONS limit",
+            "expected_outcome": "MAX_ITERATION_FAILURE",
+            "expected_iterations": 5,
+            "reviewer_mock_responses": [
+                "**REVIEWER_SCORECARD**\n* Previous_Kill_List_Fixed: [N/A] (Initial run)\n* Lean_Plan_Table_Present: [YES]\n* Appendix_A_Toulmin_Present: [YES]\n* Marketing_AB_Structure_Correct: [YES]\n* ADK_Architecture_Compliant: [YES]\n* Citation_Quality_Pass: [NO]\n* Financial_Model_Reality_Check: [PASS]\n**END_SCORECARD**\n\nCitation quality check failed. Multiple MDPI journal citations detected.\n\nKill List (Iteration 1):\n1. Remove ALL citations from MDPI journals (identified: 8 instances)\n2. Replace with citations from reputable journals (IEEE, ACM, Springer, Elsevier)\n3. Ensure citation diversity across sources",
+                "**REVIEWER_SCORECARD**\n* Previous_Kill_List_Fixed: [NO]\n* Lean_Plan_Table_Present: [YES]\n* Appendix_A_Toulmin_Present: [YES]\n* Marketing_AB_Structure_Correct: [YES]\n* ADK_Architecture_Compliant: [YES]\n* Citation_Quality_Pass: [NO]\n* Financial_Model_Reality_Check: [PASS]\n**END_SCORECARD**\n\nCitation purge incomplete. MDPI citations still present.\n\nKill List (Iteration 2):\n1. MDPI citations detected: 5 remaining instances (down from 8)\n2. Complete the purge - remove ALL MDPI references\n3. Verify replacement citations are from approved sources",
+                "**REVIEWER_SCORECARD**\n* Previous_Kill_List_Fixed: [NO]\n* Lean_Plan_Table_Present: [YES]\n* Appendix_A_Toulmin_Present: [YES]\n* Marketing_AB_Structure_Correct: [YES]\n* ADK_Architecture_Compliant: [YES]\n* Citation_Quality_Pass: [NO]\n* Financial_Model_Reality_Check: [PASS]\n**END_SCORECARD**\n\nMDPI purge still incomplete.\n\nKill List (Iteration 3):\n1. MDPI citations detected: 3 remaining instances\n2. These citations must be removed and replaced\n3. Run final verification sweep",
+                "**REVIEWER_SCORECARD**\n* Previous_Kill_List_Fixed: [NO]\n* Lean_Plan_Table_Present: [YES]\n* Appendix_A_Toulmin_Present: [YES]\n* Marketing_AB_Structure_Correct: [YES]\n* ADK_Architecture_Compliant: [YES]\n* Citation_Quality_Pass: [NO]\n* Financial_Model_Reality_Check: [PASS]\n**END_SCORECARD**\n\nMDPI citations persist.\n\nKill List (Iteration 4):\n1. MDPI citations detected: 2 remaining instances in Section 4.3\n2. Remove these final MDPI references immediately",
+                "**REVIEWER_SCORECARD**\n* Previous_Kill_List_Fixed: [NO]\n* Lean_Plan_Table_Present: [YES]\n* Appendix_A_Toulmin_Present: [YES]\n* Marketing_AB_Structure_Correct: [YES]\n* ADK_Architecture_Compliant: [YES]\n* Citation_Quality_Pass: [NO]\n* Financial_Model_Reality_Check: [PASS]\n**END_SCORECARD**\n\nFinal iteration - MDPI citations still present.\n\nKill List (Iteration 5):\n1. MDPI citations detected: 1 remaining instance in Section 4.3.2\n2. This citation must be removed for document approval"
+            ],
+            "meta_reviewer_mock_prompts": [
+                "Agent A: Prioritize removing ALL MDPI journal citations from the document. Search the entire document for MDPI references and replace them with citations from reputable sources (IEEE, ACM, Springer, Nature, Science, Elsevier). This is a critical quality requirement.",
+                "Agent A: You still have 5 MDPI citations remaining. Perform a comprehensive search for 'MDPI' and remove every instance. Replace with high-quality journal citations. Do NOT proceed until all MDPI references are eliminated.",
+                "Agent A: MDPI purge incomplete - 3 citations remain. Focus specifically on removing these final MDPI references. Search thoroughly and replace with approved journal citations.",
+                "Agent A: Two MDPI citations remain in Section 4.3. Remove these specific instances and replace with IEEE or ACM citations. This should be your final cleanup.",
+                "NOT_EXECUTED"
+            ]
+        },
+        {
+            "scenario_name": "Robustness Check: Scorecard Parsing Failure",
+            "description": "Validates that parse_scorecard handles missing scorecard markers gracefully without crashing",
+            "expected_outcome": "MAX_ITERATION_FAILURE",
+            "expected_iterations": 5,
+            "reviewer_mock_responses": [
+                "This is a corrupted response from the Reviewer Agent. No scorecard markers are present in this output. The response contains only raw text discussing structural compliance issues. The Lean Plan Table appears to be missing several required headers, but this feedback is not properly formatted within the expected REVIEWER_SCORECARD structure. This simulates a catastrophic failure in the Reviewer Agent's output formatting.",
+                "**REVIEWER_SCORECARD**\n* Previous_Kill_List_Fixed: [UNKNOWN]\n* Lean_Plan_Table_Present: [NO]\n**END_SCORECARD**\n\nPartially recovered scorecard with minimal fields.\n\nKill List:\n1. Fix Lean Plan Table structure",
+                "Another corrupted response without proper markers. The document still has issues with the Lean Plan Table structure. Headers are missing. This is iteration 3 but the scorecard format is broken again.",
+                "**REVIEWER_SCORECARD**\n* Previous_Kill_List_Fixed: [NO]\n* Lean_Plan_Table_Present: [NO]\n**END_SCORECARD**\n\nKill List:\n1. Lean Plan Table still incomplete",
+                "**REVIEWER_SCORECARD**\n* Previous_Kill_List_Fixed: [NO]\n* Lean_Plan_Table_Present: [NO]\n**END_SCORECARD**\n\nFinal iteration - structural issues persist.\n\nKill List:\n1. Lean Plan Table requirements not met"
+            ],
+            "meta_reviewer_mock_prompts": [
+                "Agent A: FIX STRUCTURAL COMPLIANCE! The Lean Plan Table must include all required headers. Add: Problem, Solution, Key Metrics, Unique Value Proposition, Unfair Advantage, Channels, Customer Segments, Cost Structure, Revenue Streams, Team, and Milestones.",
+                "Agent A: Continue fixing the Lean Plan Table structure. Ensure all headers are present and properly formatted.",
+                "Agent A: The Lean Plan Table is still incomplete. Add all missing headers according to the Lean Canvas framework.",
+                "Agent A: Fourth attempt - complete the Lean Plan Table with all required components.",
+                "NOT_EXECUTED"
+            ]
+        }
+    ],
+    "test_metadata": {
+        "generated_date": "2025-12-01",
+        "target_script": "router_agent_orchestrator.py",
+        "max_iterations": 5,
+        "termination_conditions": {
+            "success": "Previous_Kill_List_Fixed == 'YES' AND 'REJECTED' NOT in response",
+            "failure": "iteration_count >= MAX_ITERATIONS"
+        },
+        "critical_validation_points": [
+            "Scorecard parsing handles missing markers gracefully",
+            "Termination logic correctly evaluates Previous_Kill_List_Fixed",
+            "REJECTED keyword detection is case-insensitive",
+            "Loop terminates at exactly MAX_ITERATIONS when no success",
+            "State (previous_kill_list) propagates correctly between iterations",
+            "Meta-Reviewer receives complete context (scorecard + audit_report + draft)"
+        ]
+    }
+}
